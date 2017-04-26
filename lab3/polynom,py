@@ -1,0 +1,24 @@
+import sys
+
+
+def getCalculating(val):
+    if val == 0:
+        return None
+    return 1 / int(val) * 3
+
+
+def main():
+    global amount, val
+    string = str(input('Ввод: '))
+    string = string.split('--poly=')
+    string = string[1].split(',')
+
+    for val in string:
+        amount += getCalculating(val)
+
+    print(string)
+    print(amount)
+
+
+if __name__ == "__main__":
+    main()
