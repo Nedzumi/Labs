@@ -1,0 +1,7 @@
+import sys
+
+class ComLine:  # Считывание аргумента командной строки
+    def __init__(self):
+        self.__comStr__ = sys.argv[1]
+        self.__comStr__ = self.__comStr__.split('--poly=')
+        self.__comStr__ = self.__comStr__[1].split(',')
