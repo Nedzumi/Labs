@@ -1,74 +1,43 @@
-from statistics import mean
-import numpy as np
-import matplotlib.pyplot as plt
-import statistics
+class Calc:
 
-listmails = []
-db = {}
-spamers = {}
-mail_data=[]
+    def __init__(self, x, y):
+        self.value=x
+        self.value2=y
 
-class Mathematics:
-    def averagevalue(self, contain, n):
-        return (contain / n)
+    def summ(self):
+        return self.value+self.value2
 
-class Parser:
+    def divide(self):
+        return self.value / self.value2
 
-    def mailsdict(self):
-        for i in listmails:
-            if i in db:
-                db[i] += 1
+    def diff(self):
+        return self.value - self.value2
+
+    def multi(self):
+        return self.value * self.value2
+
+def main():
+    while True:
+        s = input("Выбыерите действие (Сложение,Вычитание,Умножение,Деление): ")
+        if s == '0': break
+        if s in ('+', '-', '*', '/'):
+            x = (float(input("x=")))
+            y = float(input("y="))
+            calculator=Calc(x,y)
+            if s == '+':
+                print(calculator.summ())
+            elif s == '-':
+                print(calculator.diff())
+            elif s == '*':
+                print(calculator.multi())
+            elif s == '/':
+                if y != 0:
+                    print(calculator.divide())
+                else:
+                    print("/0=error!")
             else:
-                db[i] = 1
-
-
-    def getAuthor(self):
-        global vspam, listmails, db, col, authortest
-        authortest=[]
-        l=0
-        col=0
-        for line in mail_data:
-            l = line.split(':')
-            if l[0] == 'X-DSPAM-Confidence':
-                vspam=float(l[1])
-            if l[0] == 'Author':
-                author = line.split(':').pop().replace('\n', '')
-                listmails.append(author)
-            if vspam > dspam_data and author!=authortest:
-                spamers.setdefault(author, vspam)
-                authortest=author
-                col+=1
-
-    def main(self):
-        global author, dspam_data, mail_data, vspam
-        n = 0
-        l = 0
-        vspam = 0
-        contain = 0
-        f = open('mbox.txt', 'r')
-        mail_data = f.readlines()
-        f.close()
-        n = 0
-        for line in mail_data:
-
-            l = line.split(':')
-            if l[0] == 'X-DSPAM-Confidence':
-                contain = contain + float(l[1])
-                n = n + 1
-
-        dspam_data = math.averagevalue(contain, n)
-        print('Среднее значение: ', dspam_data)
-        mail_parser.getAuthor()
-        print("Заблокировано:", col, spamers)
-        mail_parser.mailsdict()
-        print('Отправитель-количество писем: ', db)
-        plt.bar(range(len(db)), db.values(), align='center')
-        #plt.xticks(range(len(db)), db.keys())
-        plt.show()
+                print("error!")
 
 
 if __name__ == "__main__":
-    mail_parser = Parser()
-    math=Mathematics()
-mail_parser.main()
-    calculator.main()
+    main()
