@@ -4,9 +4,9 @@ class Number:
     def __init__(self, s):
         self.__s__ = s
 
-    def getNum(self):
+    def getNumber(self):
         return self.__s__
-class LastAnswer:
+class Answer:
     def __init__(self):
         self.__x__ = 3
 
@@ -15,8 +15,7 @@ class LastAnswer:
 
     def setLA(self, ans):
         self.__x__ = ans
-#По формуле Герона
-class formula:
+class sqrt :
     def setAns(self, x, s):
         self.__ans__ = (x + (s / x)) /2
 
@@ -26,13 +25,11 @@ class formula:
 if __name__ == '__main__':
     print('Enter the number: ')
     s = Number(float(input()))
-    x = LastAnswer()
-    answer = formula()
-    answer.setAns(x.getLA(), s.getNum())
-    #Приблизительное значение ответа не должно отличатся на:
+    x = Answer()
+    answer = sqrt ()
+    answer.setAns(x.getLA(), s.getNumber())
     while abs(x.getLA() - answer.getAns()) > 0.00005:
         x.setLA(answer.getAns())
-        answer.setAns(x.getLA(), s.getNum())
+        answer.setAns(x.getLA(), s.getNumber())
 
     print('Answer = {}'.format(answer.getAns()))
-
