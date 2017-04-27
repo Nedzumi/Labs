@@ -1,9 +1,0 @@
-class LastAnswer:   # Последний ответ
-    def __init__(self):
-        self.__lastAns__ = 3
-
-    def getLA(self):
-        return self.__lastAns__
-
-    def setLA(self, ans):
-        self.__lastAns__ = ans
