@@ -14,7 +14,7 @@ class Geron():
 
 
 def main():
-    x = float(input('Число, для которого ищем корень: '))
+    x = float(input('Введите число: '))
     y = int(input('Введите прибл. значение: '))
     grn=Geron(x,y)
     grn.formula()
