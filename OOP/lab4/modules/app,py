@@ -1,28 +1,15 @@
-from modules.size import Size
-from modules.number import Number
-from modules.sma import SMA
-from modules.myOutput import MyOutput
+from modules.Modules import Core
 
-class App:
+class App():
     def __init__(self):
-        self.size = Size()
-        self.num = Number()
-        self.sma = SMA()
-        self.myOutput = MyOutput()
-
-
-        self.__answer__ = []
-        self.__origData__ = []
-
-    def run(self):
-        self.size.setSize()
-        i = 0
-        while i < 30:
-            self.num.setNum()
-            self.__origData__.append(self.num.getNum())  # добавляем данные о функции
-
-            self.ans = self.sma.calc(self.num.getNum(), self.size.getSize())  # ищем значение sma
-            if self.ans != None:
-                self.__answer__.append(self.ans)  # добавляем ответ, если очередь была заполнена
-            i += 1
-        self.myOutput.graf(self.__origData__, self.__answer__, self.size.getSize())
+        while 1:
+            self.Core = Core()
+            print('Введите X:')
+            self.Result = self.Core.Calculate(input())
+            print('Получаем скользящее среднее: ')
+            print(self.Result)
+            self.Core.BuildGraphic()
+            print('\nДля продолжения введите 1 \nДля выхода введите 0')
+            p = input()
+            if p == '0':
+                break;
